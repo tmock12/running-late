@@ -1,0 +1,12 @@
+<div class="content-block">
+  <a href="#" class="button button-big button-fill color-red {{if disableSend 'disabled'}}" {{action "sendRunningLate"}}>Gonna be late</a>
+</div>
+
+<div class="row">
+  <div class="col-33"></div>
+  <div class="col-33 center-text">
+    <h3>Posting as: {{ userName }}</h3>
+    <p>{{link-to "Change User" "sign-in" class="item-link list-button"}}</p>
+  </div>
+  <div class="col-33"></div>
+</div>
