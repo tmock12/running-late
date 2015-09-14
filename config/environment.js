@@ -1,4 +1,15 @@
 /* jshint node: true */
+var os     = require('os');
+var ifaces = os.networkInterfaces();
+
+var addresses = [];
+for (var dev in ifaces) {
+  ifaces[dev].forEach(function(details){
+    if(details.family === 'IPv4' && details.address !== '127.0.0.1') {
+      addresses.push(details.address);
+    }
+  });
+}
 
 module.exports = function(environment) {
   var ENV = {
@@ -18,11 +29,14 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
-
     cordova: {
-      rebuildOnChange: true,
-      emulate: true,
-      platform: 'ios'
+      rebuildOnChange: false,
+      emulate: false,
+      emberUrl: 'http://' + addresses[0] + ':4200',
+      liveReload: {
+        enabled: true,
+        platform: 'ios'
+      }
     }
   };
 
