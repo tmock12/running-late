@@ -37,6 +37,9 @@ module.exports = function(environment) {
         enabled: true,
         platform: 'ios'
       }
+    },
+    framework7: {
+      theme: 'ios'
     }
   };
 
