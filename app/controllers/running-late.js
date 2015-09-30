@@ -29,10 +29,13 @@ export default Ember.Controller.extend({
   },
 
   saveRunningLate() {
-    var runningLate = this.store.createRecord("running-late", {
-      text: `${this.get("userName")} is running late, lat: ${this.get("lat")} long: ${this.get("long")}`
+    var notification = this.store.createRecord("notification", {
+      message: `${this.get("userName")} is running late`,
+      latitude: this.get("lat"),
+      longitude: this.get("long")
     });
-    runningLate.save().then(
+    this.set("notification", notification);
+    notification.save().then(
       () => { this.alertSuccess(); },
       () => { this.alertFailure(); }
     );

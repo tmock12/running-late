@@ -1,5 +1,7 @@
 import DS from 'ember-data';
+import config from '../config/environment';
 
-export default DS.LSAdapter.extend({
-  namespace: 'running-late'
+export default DS.RESTAdapter.extend({
+  host: config.apiUrl,
+  namespace: "api/v1"
 });
