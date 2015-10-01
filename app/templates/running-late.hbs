@@ -7,6 +7,9 @@
   <div class="col-33 center-text">
     <h3>Posting as: {{ userName }}</h3>
     <p>{{link-to "Change User" "sign-in" class="item-link list-button"}}</p>
+    {{#if notification.url}}
+      <a href="#" class="button" {{ action 'openNotificationUrl' }}>View Post</a>
+    {{/if}}
   </div>
   <div class="col-33"></div>
 </div>

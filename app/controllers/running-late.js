@@ -48,6 +48,10 @@ export default Ember.Controller.extend({
       var failure = () => { this.alertFailure(); };
 
       this.getLocation().then(saveRunningLate, failure);
+    },
+
+    openNotificationUrl() {
+      window.open(this.get('notification.url'), '_blank', 'location=yes');
     }
   }
 });
